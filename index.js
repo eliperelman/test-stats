@@ -26,13 +26,13 @@ fs.readFile(file, { encoding: 'utf8' }, function(err, content) {
 
     var chunkValues = values.slice(start, end);
 
-    console.log('Mean ' + chunk + ':', math.mean(chunkValues));
-    console.log('Median ' + chunk + ':', math.median(chunkValues));
-    console.log('Mode ' + chunk + ':', math.median(chunkValues));
-    console.log('Minimum ' + chunk + ':', Math.min.apply(Math, chunkValues));
-    console.log('Maximum ' + chunk + ':', Math.max.apply(Math, chunkValues));
-    console.log('Standard Deviation ' + chunk + ':', math.stdev(chunkValues));
-    console.log('95th Percentile ' + chunk + ':', math.percentile(chunkValues, 0.95));
+    console.log('Mean %d: %d', chunk, math.mean(chunkValues));
+    console.log('Median %d: %d', chunk, math.median(chunkValues));
+    console.log('Mode %d: %d', chunk, math.median(chunkValues));
+    console.log('Minimum %d: %d', chunk, Math.min.apply(Math, chunkValues));
+    console.log('Maximum %d: %d', chunk, Math.max.apply(Math, chunkValues));
+    console.log('Standard Deviation %d: %d', chunk, math.stdev(chunkValues));
+    console.log('95th Percentile %d: %d', chunk, math.percentile(chunkValues, 0.95));
     console.log('\n ---------------- \n')
   }
 
