@@ -1,0 +1,20 @@
+{
+  "name": "test-stats",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Test Stats",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eliperelman/test-stats.git"
+  },
+  "author": "Eli Perelman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eliperelman/test-stats/issues"
+  },
+  "homepage": "https://github.com/eliperelman/test-stats",
+  "dependencies": {
+    "stats-lite": "^1.0.3"
+  }
+}
