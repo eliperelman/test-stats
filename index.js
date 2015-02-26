@@ -1,8 +1,9 @@
 var fs = require('fs');
 var math = require('stats-lite');
-var SUITE = 'Suites.ColdLaunch.clock.gaiamobile.org.visuallyLoaded';
-
 var file = process.env.RAPTOR_LOGFILE;
+
+var METRIC_NAME = 'Suites.ColdLaunch.clock.gaiamobile.org.visuallyLoaded';
+var CHUNK_SIZE = 30;
 
 if (!file) {
   throw new Error('Missing logfile from env RAPTOR_LOGFILE');
@@ -17,12 +18,12 @@ fs.readFile(file, { encoding: 'utf8' }, function(err, content) {
     .split('\n')
     .map(function(row) {
       var data = JSON.parse(row);
-      return data[SUITE][0].value;
+      return data[METRIC_NAME][0].value;
     });
 
-  for (var chunk = 0, chunks = Math.ceil(values.length / 30); chunk < chunks; chunk++) {
-    var start = chunk * 30;
-    var end = ((chunk + 1) * 30) - 1;
+  for (var chunk = 0, chunks = Math.ceil(values.length / CHUNK_SIZE); chunk < chunks; chunk++) {
+    var start = chunk * CHUNK_SIZE;
+    var end = ((chunk + 1) * CHUNK_SIZE) - 1;
 
     var chunkValues = values.slice(start, end);
 
